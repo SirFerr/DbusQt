@@ -3,11 +3,14 @@
 
 int main(int argc, char *argv[])
 {
+
     QCoreApplication app(argc, argv);
 
-    // Create the D-Bus service
-    DbusService service;
-    service.regFormat("txt","gedit");
-    // Start the event loop
+    DbusService service(&app);
+    service.regFormat("txt","clion");
+    qDebug()<<service.getLaunch("hello.txt");
+//    service.launchApp("/home/ferr/dbusService/hello.txt");
+
     return app.exec();
 }
+
